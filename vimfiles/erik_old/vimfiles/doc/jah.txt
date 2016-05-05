@@ -1,0 +1,273 @@
+*jah.txt*	Jason Heddings' customizations, tips, and tricks
+
+Author: Jason Heddings (jason@heddings.com)
+For Vim version 6.0 and above
+Last change: 20 October, 2005
+
+1. Custom Mappings                              |custom-mappings|
+2. Command Line Editing                         |command-line-editing|
+3. Handy Vim Mappings                           |handy-vim-mappings|
+4. Helpful Vim Resources                        |vim-help-files|
+5. Vim Runtime Files                            |vim-runtime-files|
+6. Plugin Options                               |jah-config|
+7. My Vim Tips                                  |my-vim-tips|
+
+Online version of PDF manual: >
+    http://www.eandem.co.uk/mrw/vim/usr_doc/doc_ltrc.pdf
+<
+==============================================================================
+                                                *custom-mappings*
+1. Custom Mappings~
+
+Wherever it makes sense, I try to stick to the original Vim commands.  These
+are the cases where I have found it easier to create my own mapping.
+
+    * Buffer navigation & management:
+      <C-Tab>   -- next buffer |:bnext|
+      <C-S-Tab> -- previous buffer |:bprev|
+
+    * Vim searching:
+      \/        -- start case-insensitive search |/ignorecase|
+      \n        -- toggle search highlighting |hlsearch|
+
+    * Mappings using background grep (results must be loaded before viewing):
+      <M-/>     -- background search all files for <cword>
+      <M-?>     -- background search all files for -- prompt
+      <M-;>     -- background code search for <cword>
+      <M-:>     -- background code search for -- prompt
+      <M-'>     -- load previous background search results
+      \"        -- run |TailMinusF| plugin on background grep results
+
+    * Using ID utils (results are displayed in the quickfix window):
+      <M-=>     -- search id-utils database for <cword>
+      <M-+>     -- search id-utils database for -- prompt
+      \T        -- rebuild id-utils DB from current directory
+
+    * Navigating & using tag files:
+      <M-]>     -- go to tag definition for word under cursor |CTRL-]|
+      <M-[>     -- return to previous tag location |CTRL-T|
+      <M-\>     -- split window on tag definition |:ptag|
+      <M-}>     -- next tag match |:tnext|
+      <M-{>     -- previous tag match |:tprev|
+      \t        -- rebuild tags file from current directory (see |:pwd|)
+
+    * Editing shortcuts:
+      <Tab>     -- indent 1 level (visual mode) |>|
+      <S-Tab>   -- outdent 1 level (visual mode) |<|
+      <S-Enter> -- enter new line above cursor (normal mode)
+      <C-Enter> -- enter new line below cursor (normal mode)
+
+    * For using plugin windows:
+      \\        -- toggle buffer list (requires bufferlist plugin)
+      \`        -- toggle quickfix window (requires |qfixtoggle| plugin)
+      \;        -- toggle tag list (requires |taglist| plugin)
+      \a        -- alternate header/source file (requires 'a.vim' plugin)
+      ``        -- toggle window manager (requires |windowmanager| plugin)
+      ;;        -- toggle session manager (requires |sessionmgr| plugin)
+
+    * Using the |quickfix| window:
+      <M-.>     -- jump to next item in quickfix |:cnext|
+      <M-,>     -- jump to previous item in quickfix |:cprev|
+
+    * Getting help
+      \<F1>     -- load this help file
+      <M-F1>    -- rebuild user help files |:helptags|
+      <C-F1>    -- show help topic for word under cursor |{subject}|
+
+    * Background Make
+      <M-">     -- load previous background make results
+      \"        -- run |TailMinusF| plugin on background make results
+
+    * Miscellaneous
+      \s        -- display current syntax links |syntax|
+      <C-S>     -- save the current buffer |:write|
+      <C-A>     -- select all text in current buffer
+      \<Tab>    -- apply current tab settings to file |:retab|
+
+    * Filetype Specific -- only applies to certain filetypes
+      <Tab>     -- smart complete next (insert mode) |i_CTRL-N|
+      <S-Tab>   -- smart complete previous (insert mode) |i_CTRL-P|
+
+==============================================================================
+                                                *command-line-editing*
+2. Command-Line Editing~
+
+These commands have been remapped from the original Vim |cmdline-history|
+commands to something that makes a little more sense.
+
+      <C-K>     -- scroll up through command history
+      <C-O>     -- move to beginning of command line
+      <C-B>     -- move one word left
+      <C-J>     -- scroll down through command history
+      <C-G>     -- move to end of command line
+      <C-W>     -- move one word right
+      <C-BS>    -- delete word before cursor
+      <C-H>     -- move cursor left
+      <C-D>     -- delete after before cursor
+      <C-J>     -- move cursor right
+      <C-C>     -- copy to command line from the history window
+
+==============================================================================
+                                                *handy-vim-commands*
+3. Handy Vim Commands (Built In)~
+
+    * Navigation and searching
+      * or #    -- find next occurrence of word in file |star|
+      gf        -- open file under cursor |gf|
+      gg        -- jump to first line in buffer |gg|
+      G         -- jump to last line in buffer |G|
+      m<name>   -- set mark using a single character name |mark|
+      '<name>   -- jump to mark with given character name |'|
+
+    * Programming stuff:
+      [[        -- jump to top of current function |[[|
+      ]]        -- jump to top of next function |]]|
+      %         -- find matching brace or paren |%|
+      =         -- smart indent visual block (== indent line) |=|
+      gq        -- format motion or visual block |gq|
+
+    * Macros
+      q<name>   -- create macro (end with q) |q|
+      @<name>   -- run macro (@@ repeats last macro) |@|
+
+    * Cursor history
+      <C-O>     -- jump to previous location in history |CTRL-O|
+      <C-I>     -- jump to next location in history |CTRL-I|
+
+    * Auto completion (in insert mode)
+      <C-N>     -- auto-complete next (:help complete) |i_CTRL-X_CTRL-N|
+      <C-P>     -- auto-complete previous (:help complete) |i_CTRL-X_CTRL-P|
+
+    * Screen navigation
+      H         -- jump to top of screen |H|
+      M         -- jump to middle of screen |M|
+      L         -- jump to bottom of screen |L|
+      <C-E>     -- scroll one line down |CTRL-E|
+      <C-Y>     -- scroll one line up |CTRL-Y|
+
+    * Using Vim diffs
+      ]c        -- next diff in file |]c|
+      [c        -- previous diff in file |[c|
+      do        -- diff obtain (get change from other window) |do|
+      dp        -- diff put (put change into other window) |dp|
+
+    * Registers (Multiple Cut/Copy/Paste) |registers|
+      :reg      -- list all register contents |:reg|
+      "xyy      -- yank lines [into register x] |yy|
+      "xp       -- put the text [from register x] after the cursor |P|
+
+
+==============================================================================
+                                                *vim-help-files*
+4. Helpful Vim Resources~
+
+These are resources in the Vim online help documentation.
+
+    * Searching
+      Search commands               |search-commands|
+      Pattern definiton             |search-pattern|
+      Specifying multiple patterns  |pattern-multi-items|
+      Atoms and character ranges    |pattern-atoms|
+
+    * Miscellaneouse
+      Using diff & patch In Vim     |vimdiffs|
+
+
+==============================================================================
+                                                *vim-runtime-files*
+5. Vim Runtime Files~
+
+The following is a description of my runtime setup:
+
+    $HOME/
+      .vimrc         " main vimrc settings file
+      vimfiles/
+        colors/      " my custom color schemes
+        doc/         " help files
+        ftplugin/    " files with filetype-specific vim settings
+        plugin/
+          jah.vim    " utility functions
+        binford.vim  " settings specific to Binford
+
+Settings in .vimrc instruct |viminfo| to live in the $VIMRUNTIME directory.
+
+Note See also |runtimepath|
+
+==============================================================================
+                                                *jah-config*
+6. Plugin Options~
+
+Certain behaviors of my plugin may be customized with the following options:
+
+|'jah_Enable_Sessions'|          enable automatic session management
+|'jah_On_Quit_Check_Buffers'|    provides prompt when quitting
+|'jah_Open_BG_Grep_On_Results'|  automatically open results when BGGrep stops
+|'jah_Open_BG_Make_On_Results'|  automatically open results when BGMake stops
+|'jah_Smart_Tab_Completion'|     performs auto-completion using <Tab>
+|'jah_Tail_BG_Grep_Results'|     displays preview window w/ grep results
+|'jah_Tail_BG_Make_Results'|     displays preview window w/ make results
+
+                                                *'jah_Enable_Sessions'*
+jah_Enable_Sessions~
+        When enabled, the plugin will manage the session automatically when 
+        Vim starts and exits.  If Vim is started with no specified file to 
+        edit, the previous session will be loaded.  Otherwise, if a file is
+        specified for editing, the session information will not be read or
+        saved automatically.
+
+                                                *'jah_On_Quit_Check_Buffers'*
+jah_On_Quit_Check_Buffers~
+        When enabled, this will check to see if there are buffers that are not
+        displayed in any window, and provide a prompt before exiting Vim.
+        Only the common mappings for exiting Vim are used, so not all commands
+        will run through this check.
+
+                                                *'jah_Open_BG_Grep_On_Results'*
+jah_Open_BG_Grep_On_Results~
+        When enabled, this will cause results from a BGGrep operation to be 
+        displayed as soon as the operation completes
+
+                                                *'jah_Open_BG_Make_On_Results'*
+jah_Open_BG_Make_On_Results~
+        When enabled, this will cause results from a BGMake operation to be 
+        displayed as soon as the operation completes
+
+                                                *'jah_Smart_Tab_Completion'*
+jah_Smart_Tab_Completion~
+        When enabled, this will cause the <Tab> and <S-Tab> keys to attempt to 
+        complete the current word in insert mode.  If the current word is not 
+        a keyword (|'iskeyword'|), then a <Tab> will be inserted at the cursor.
+        The completion behavior is specified using |'complete'|.
+
+                                                *'jah_Tail_BG_Grep_Results'*
+jah_Tail_BG_Grep_Results~
+        When enabled, this will provide the partial reaults (using the
+        |TailMinusF| plugin) of a grep command as it is running in the
+        background.
+
+                                                *'jah_Tail_BG_Make_Results'*
+jah_Tail_BG_Make_Results~
+        When enabled, this will provide the partial reaults (using the
+        |TailMinusF| plugin) of a make command as it is running in the
+        background.
+
+==============================================================================
+                                                *my-vim-tips*
+7. My Vim Tips~
+
+These are tips and scripts that I have written for Vim.
+
+    * Tips
+      Background :grep Searches >
+        http://www.vim.org/tips/tip.php?tip_id=986
+<     Toggle quickfix Window >
+        http://www.vim.org/tips/tip.php?tip_id=1008
+<
+    * Plugins
+      QFixToggle >
+        http://www.vim.org/scripts/script.php?script_id=1375
+<     TailMinusF >
+        http://www.vim.org/scripts/script.php?script_id=1374
+<
+==============================================================================
+vim:textwidth=78:tabstop=8:noexpandtab:filetype=help

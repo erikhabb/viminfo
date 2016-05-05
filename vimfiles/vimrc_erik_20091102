@@ -1,0 +1,6 @@
+runtime jah.vimrc
+set guifont="Monospace\ 10"
+set nu
+
+source ~/.vim/erik.vim
+source ~/.vim/omons.vim

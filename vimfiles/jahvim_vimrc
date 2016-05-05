@@ -1,0 +1,15 @@
+runtime jah.vimrc
+" set guifont="Courier 10"
+set guifont="Monospace 10"
+set swapfile
+set dir=~/tmp
+
+" cursorline
+hi CursorLine cterm=NONE ctermbg=darkgrey ctermfg=white guibg=white guifg=white
+set cursorline nocursorcolumn
+
+:command Kernel set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+
+au BufWritePre * exe "mark s | g/$/s/  *$// | 's"
+
+source ~/.vim/omons.vim

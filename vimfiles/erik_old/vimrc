@@ -1,0 +1,116 @@
+" basic stuff
+set nocompatible
+set viminfo='50,<1000,s100,:0,n$VIMFILES/viminfo
+
+" global configuration
+" let g:colors="jah"
+let g:src_files="c cpp h hpp java php html xml xul js pl vim"
+
+if !has("$VIMFILES")
+  let $VIMFILES=expand("$HOME/vimfiles")
+endif
+
+" window sizing stuff
+if has("gui_running")
+  set lines=64
+  set columns=100
+endif
+" **  This line is 80 chars long  **********************************************
+
+" general settings
+set ruler
+set nowrap
+set showcmd
+set nobackup
+set scrolloff=2
+set history=100
+set updatetime=500
+set backspace=indent,eol,start
+filetype plugin indent on
+
+" search options
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set tags=./tags,../tags,tags
+
+" program locations (note some are vim options and some are variables)
+set grepprg=grep.exe\ -n
+let g:mkidprg="mkid.exe"
+let g:gidprg="gid.exe"
+let g:ctagsprg="ctags.exe"
+let g:araxisprg="C:\\Development\\Araxis\\compare.exe"
+
+" useful programming features
+set number
+set expandtab
+set smarttab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set smartindent
+set showmatch
+set matchtime=4
+
+" set up the status line, includes the ascii value for the char at the cursor
+set laststatus=1
+set statusline=%<%f%h%m%r%=%b\ 0x%B\ \ %l,%c%V\ %P
+
+" GUI features
+set mousehide
+set guioptions=gmrLt
+set winaltkeys=menu
+
+" wildmenu settings
+set wildmenu
+set wildmode=full
+
+" colors & font
+syntax on
+" execute "colors " . g:colors
+set guifont=Courier_New:h8:cANSI
+
+" the default is "\" but I use that a lot, so...
+let g:mapleader=","
+
+" other configuration files
+source $VIMFILES/binford.vim
+helptags $VIMFILES/doc
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" P L U G I N   C O N F I G U R A T I O N
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" configure my plugin
+let g:jah_Tail_BG_Make_Results=1
+let g:jah_Tail_BG_Grep_Results=1
+
+" configure QFixToggle
+let g:QFixToggle_Height=12
+
+" configure TailMinusF
+let g:TailMinusF_Height=12
+let g:TailMinusF_Center_Win=0
+
+" configure the taglist plugin
+let g:Tlist_Auto_Highlight_Tag=1
+let g:Tlist_Auto_Open=0
+let g:Tlist_Compact_Format=0
+let g:Tlist_Display_Prototype=0
+let g:Tlist_Display_Tag_Scope=0
+let g:Tlist_Enable_Fold_Column=0
+let g:Tlist_Exit_OnlyWindow=0
+let g:Tlist_File_Fold_Auto_Close=1
+let g:Tlist_Inc_Winwidth=0
+let g:Tlist_Max_Submenu_Items=100
+let g:Tlist_Process_File_Always=1
+let g:Tlist_Show_Menu=1
+let g:Tlist_Show_One_File=1
+let g:Tlist_Use_Horiz_Window=0
+let g:Tlist_Use_Right_Window=1
+let g:Tlist_Use_SingleClick=1
+let g:Tlist_Sort_Type="name"
+
+source $VIMFILES/erik.vim

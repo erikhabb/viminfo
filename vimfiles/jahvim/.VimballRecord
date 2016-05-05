@@ -1,0 +1,1 @@
+conque_1.1.vba: call delete('/home/erikh/.vim/autoload/conque_term.vim')|call delete('/home/erikh/.vim/doc/conque_term.txt')|call delete('/home/erikh/.vim/plugin/conque_term.vim')|call delete('/home/erikh/.vim/syntax/conque_term.vim')

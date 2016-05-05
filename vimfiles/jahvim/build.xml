@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+
+<project name="Jason Heddings' Vim Configuration" basedir="." default="build">
+  <tstamp />
+
+  <!-- setup dist environment -->
+  <property name="dist.dir" location="${basedir}/vimdist" />
+  <property name="dist.tar" location="${dist.dir}/jahvim,v${DSTAMP}.tgz" />
+  <property name="dist.zip" location="${dist.dir}/jahvim,v${DSTAMP}.zip" />
+
+  <!-- figure out which vimrc to use -->
+  <available property="vimrc" file="${user.home}/.vimrc" value="${user.home}/.vimrc" />
+  <available property="vimrc" file="${user.home}/_vimrc" value="${user.home}/_vimrc" />
+
+  <!-- figure out which vimfiles to use -->
+  <available property="vimfiles" file="${user.home}/.vim" value="${user.home}/.vim" />
+  <available property="vimfiles" file="${user.home}/vimfiles" value="${user.home}/vimfiles" />
+
+  <!--=======================================================================-->
+  <target name="init">
+    <mkdir dir="${dist.dir}" />
+  </target>
+
+  <!--=======================================================================-->
+  <target name="build" depends="init,build-zip,build-tar" />
+
+  <!--=======================================================================-->
+  <target name="build-zip" depends="init">
+    <zip destfile="${dist.zip}">
+      <zipfileset dir="${vimfiles}" prefix="jahvim">
+        <exclude name="**/viminfo" />
+        <exclude name="**/vimdist/*" />
+      </zipfileset>
+    </zip>
+  </target>
+
+  <!--=======================================================================-->
+  <target name="build-tar" depends="init">
+    <tar compression="gzip" destfile="${dist.tar}">
+      <tarfileset dir="${vimfiles}" prefix="jahvim">
+        <exclude name="**/viminfo" />
+        <exclude name="**/vimdist/*" />
+      </tarfileset>
+    </tar>
+  </target>
+
+  <!--=======================================================================-->
+  <target name="clean">
+    <delete dir="${dist.dir}" />
+  </target>
+
+  <!--=======================================================================-->
+  <target name="distclean" depends="clean">
+    <delete>
+      <fileset dir="." includes="viminfo" />
+      <fileset dir="doc" includes="tags" />
+    </delete>
+  </target>
+
+  <!--=======================================================================-->
+  <target name="syntax">
+    <!-- use syntags
+      c  classes
+      d  macro definitions
+      e  enumerators (values inside an enumeration)
+      f  function definitions
+      g  enumeration names
+      l  local variables [off]
+      m  class, struct, and union members
+      n  namespaces
+      p  function prototypes [off]
+      s  structure names
+      t  typedefs
+      u  union names
+      v  variable definitions
+      x  external variable declarations [off]
+    -->
+  </target>
+
+</project>

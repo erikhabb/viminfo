@@ -1,0 +1,25 @@
+startup_message off
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+
+# preserve console after vim closes
+altscreen on
+
+# turn off all visual and audio bells
+vbell off
+bell_msg ""
+#
+# # allow scrollwheel to work
+termcapinfo xterm*|xs|rxvt ti@:te@
+#
+# # Default screens
+screen -t s0 0
+screen -t s1 1
+screen -t s2 2
+screen -t s3 3
+screen -t s4 4
+screen -t s5 5
+screen -t s6 6
+screen -t s7 7
+screen -t s8 8
+
