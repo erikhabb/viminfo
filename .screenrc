@@ -1,6 +1,7 @@
 startup_message off
-hardstatus alwayslastline
-hardstatus string '%{= kG}[ %{G}%H %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+# disabled status line to work better with iTerm2
+#hardstatus alwayslastline
+#hardstatus string '%{= kG}[ %{G}%H %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
 
 # preserve console after vim closes
 altscreen on
