@@ -2,20 +2,97 @@
 ObjC.import('AppKit')
 function run(argv) {
     // resize Terminal 1-3 depending on how many screens are running
-    if (Application("Terminal").running() || Application("iTerm2").running()) {
-        isIterm = false
-
-        if (Application("iTerm2").running()) {
-            term = Application("iTerm2")
-            console.log("iTerm2 running")
-            isIterm = true
-        } else if (Application("Terminal").running()) {
+    isTerminal = false
+    isIterm2 = false
+    try {
+        isIterm2 = Application("iTerm2").running()
+        term = Application("iTerm2")
+        console.log("iTerm2 running")
+    } catch (e) {
+        try {
+            isTerminal = Application("Terminal").running()
             term = Application("Terminal")
             console.log("Terminal running")
+        } catch (e) {
         }
+    }
+
+    if (isTerminal || isIterm2) {
         screens = $.NSScreen.screens
         screen = screens.objectAtIndex(0)
         console.log("Detected %d screens", screens.count)
+
+        var sizes = []
+        var x = []
+
+        home = true
+        if (argv.length > 0 && argv[0] === "work") {
+            home = false
+        }
+
+        columns = 85
+
+        if (screens.count == 1) {
+            rows = 61
+        } else {
+            rows = 47
+        }
+
+        if (isIterm2) {
+            if (screens.count == 1) {
+                x[0] = 0
+                x[1] = 620
+                x[2] = 819
+            } else {
+                if (home) {
+                    x[0] = -279
+                    x[1] = 362
+                    x[2] = 1003
+                } else {
+                    x[0] = -332
+                    x[1] = 309
+                    x[2] = 948
+                }
+            }
+        } else {
+            if (screens.count == 1) {
+                x[0] = 0
+                x[1] = 620
+                x[2] = 819
+            } else {
+                if (home) {
+                    x[0] = -279
+                    x[1] = 339
+                    x[2] = 959
+                } else {
+                    x[0] = -332
+                    x[1] = 289
+                    x[2] = 910
+                }
+            }
+        }
+
+        if (screens.count == 1) {
+            y = 23
+        } else {
+            y = -1057
+        }
+
+        if (isIterm2) {
+            width = 640
+        } else {
+            width = 620
+        }
+
+        if (screens.count == 1) {
+            height = 805
+        } else {
+            height = 1041
+        }
+
+        sizes[1] = {columns: columns, rows: rows, x: x[0], y: y, width: width, height: height}
+        sizes[2] = {columns: columns, rows: rows, x: x[1], y: y, width: width, height: height}
+        sizes[3] = {columns: columns, rows: rows, x: x[2], y: y, width: width, height: height}
 
         for (var j in term.windows()) {
             win = term.windows[j]
@@ -23,7 +100,7 @@ function run(argv) {
             bounds = win.bounds()
 
             // capture window number from name
-            if (isIterm) {
+            if (isIterm2) {
                 // iTerm2 labels names as 1. something
                 window_number = name.substr(0, 1)
             } else {
@@ -50,33 +127,10 @@ function run(argv) {
             // assume first three windows are the ones to arrange
             if (window_number == 1 || window_number == 2 || window_number == 3) {
                 window_number = parseInt(window_number, 10)
-                var sizes = []
 
                 console.log("win %d window_number %s x %d y %d width %d height %d",
                         j, window_number, bounds.x, bounds.y, bounds.width, bounds.height)
 
-                if (screens.count == 1) {
-                    sizes[1] = {columns: 85, rows: 61, x: 0,   y: 23, width: 620, height: 805}
-                    sizes[2] = {columns: 85, rows: 61, x: 620, y: 23, width: 620, height: 805}
-                    sizes[3] = {columns: 85, rows: 61, x: 819, y: 23, width: 620, height: 805}
-                } else {
-                    home = true
-                    if (argv.length > 0 && argv[0] === "work") {
-                        home = false
-                    }
-
-                    if (home) {
-                        // home
-                        sizes[1] = {columns: 85, rows: 47, x: -279, y: -1057, width: 620, height: 1041}
-                        sizes[2] = {columns: 85, rows: 47, x:  339, y: -1057, width: 620, height: 1041}
-                        sizes[3] = {columns: 85, rows: 47, x:  959, y: -1057, width: 620, height: 1041}
-                    } else {
-                        // work
-                        sizes[1] = {columns: 85, rows: 47, x: -332, y: -1057, width: 620, height: 1041}
-                        sizes[2] = {columns: 85, rows: 47, x:  289, y: -1057, width: 620, height: 1041}
-                        sizes[3] = {columns: 85, rows: 47, x:  910, y: -1057, width: 620, height: 1041}
-                    }
-                }
                 bounds.x = sizes[window_number].x
                 bounds.y = sizes[window_number].y
                 bounds.width = sizes[window_number].width
