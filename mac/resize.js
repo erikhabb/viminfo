@@ -46,12 +46,12 @@ function run(argv) {
             } else {
                 if (home) {
                     x[0] = -279
-                    x[1] = 362
-                    x[2] = 1003
+                    x[1] = 343
+                    x[2] = 965
                 } else {
                     x[0] = -332
-                    x[1] = 309
-                    x[2] = 948
+                    x[1] = 290
+                    x[2] = 912
                 }
             }
         } else {
@@ -79,7 +79,7 @@ function run(argv) {
         }
 
         if (isIterm2) {
-            width = 640
+            width = 621
         } else {
             width = 620
         }
