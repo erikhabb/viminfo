@@ -24,6 +24,8 @@ PROMPT_COMMAND='history -a'
 # mac specific
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH="$HOME/.cargo/bin:$PATH"
+  unalias ls
+  export CLICOLOR=1
 fi
 
 # Burlywood specific
