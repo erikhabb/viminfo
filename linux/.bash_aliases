@@ -18,6 +18,9 @@ alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias vi='vim'
 
+# save history immediately
+PROMPT_COMMAND='history -a'
+
 # mac specific
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH="$HOME/.cargo/bin:$PATH"
