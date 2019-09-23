@@ -94,15 +94,19 @@ function run(argv) {
         sizes[2] = {columns: columns, rows: rows, x: x[1], y: y, width: width, height: height}
         sizes[3] = {columns: columns, rows: rows, x: x[2], y: y, width: width, height: height}
 
-        for (var j in term.windows()) {
-            win = term.windows[j]
+        // iTerm2 windows might have increasing IDs
+        windows = term.windows()
+        windows.sort(function(a, b) { return a.id() - b.id() })
+
+        for (var j in windows) {
+            win = windows[j]
             name = win.name()
             bounds = win.bounds()
 
             // capture window number from name
             if (isIterm2) {
-                // iTerm2 labels names as 1. something
-                window_number = name.substr(0, 1)
+                window_number = Number(j) + 1
+                console.log("j %d window_number %d name %s index %d id %s", j, window_number, name, win.index(), win.id())
             } else {
                 // Terminal labels names as something - x1
                 window_number = name.substr(-1)
