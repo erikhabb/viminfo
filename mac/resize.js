@@ -45,9 +45,9 @@ function run(argv) {
                 x[2] = 819
             } else {
                 if (home) {
-                    x[0] = -279
-                    x[1] = 343
-                    x[2] = 965
+                    x[0] = -248
+                    x[1] = 374
+                    x[2] = 996
                 } else {
                     x[0] = -332
                     x[1] = 290
@@ -61,9 +61,9 @@ function run(argv) {
                 x[2] = 819
             } else {
                 if (home) {
-                    x[0] = -279
-                    x[1] = 339
-                    x[2] = 959
+                    x[0] = -248
+                    x[1] = 374
+                    x[2] = 996
                 } else {
                     x[0] = -332
                     x[1] = 289
@@ -75,7 +75,7 @@ function run(argv) {
         if (screens.count == 1) {
             y = 23
         } else {
-            y = -1057
+            y = -1055
         }
 
         if (isIterm2) {
