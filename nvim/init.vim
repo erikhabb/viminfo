@@ -29,10 +29,15 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'roblillack/vim-bufferlist'
 Plug 'scrooloose/nerdtree'
 
 call plug#end()
 
+" }}}
+
+" BufferList settings {{{
+nmap <silent> \\ :call BufferList()<CR>
 " }}}
 
 " NERDTree settings {{{
