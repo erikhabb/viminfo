@@ -27,6 +27,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export PATH="$HOME/bin/nvim-osx64/bin:$PATH"
     alias vi='nvim'
   fi
+  # Setting PATH for Python 3.10
+  # The original version is saved in .bash_profile.pysave
+  export PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}"
+  # rust (if installed)
   export PATH="$HOME/.cargo/bin:$PATH"
   unalias ls
   export CLICOLOR=1
