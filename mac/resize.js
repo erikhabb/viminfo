@@ -44,49 +44,53 @@ function run(argv) {
     var options = []
 
     // Terminal, work, work laptop, screen_count = 1
-    options[0] =  {x0: 0,     x1: 200,   x2: 400,   y: 1000,  w: 620,   h: 1023}
+    options[0] =  {x0: 0,     x1: 621,   x2: 1169,  y: 25,    w: 620,   h: 1023}
 
     // Terminal, work, work laptop, screen_count = 2
+    // @todo
     options[1] =  {x0: 500,   x1: 500,   x2: 500,   y: 1000,  w: 620,   h: 1023}
 
     // Terminal, work, Erik laptop, screen_count = 1
-    options[2] =  {x0: 500,   x1: 500,   x2: 500,   y: 1000,  w: 620,   h: 1023}
+    options[2] =  {x0: 0,     x1: 620,   x2: 821,   y: 25,    w: 619,   h: 811 }
 
     // Terminal, work, Erik laptop, screen_count = 2
+    // N/A
     options[3] =  {x0: 500,   x1: 500,   x2: 500,   y: 1000,  w: 620,   h: 1023}
 
     // Terminal, home, work laptop, screen_count = 1
-    options[4] =  {x0: 0,     x1: 621,   x2: 1169,  y: 25,    w: 620,   h: 1023}
+    options[4] = options[0]
 
     // Terminal, home, work laptop, screen_count = 2
     options[5] =  {x0: -62,   x1: 559,   x2: 1180,  y: -1055, w: 620,   h: 1023}
 
     // Terminal, home, Erik laptop, screen_count = 1
-    options[6] =  {x0: 0,     x1: 620,   x2: 821,   y: 25,    w: 619,   h: 811 }
+    options[6] = options[2]
 
     // Terminal, home, Erik laptop, screen_count = 2
     options[7] =  {x0: -292,  x1: 328,   x2: 948,   y: -1055, w: 620,   h: 1023}
 
     // iTerm2,   work, work laptop, screen_count = 1
-    options[8] =  {x0: 0,     x1: 620,   x2: 819,   y: 1000,  w: 620,   h: 1023}
+    options[8] =  {x0: 0,     x1: 621,   x2: 1172,  y: 25,    w: 620,   h: 1023}
 
     // iTerm2,   work, work laptop, screen_count = 2
-    options[9] =  {x0: 500,   x1: 500,   x2: 500,   y: 1000,  w: 620,   h: 1023}
+    // @todo
+    options[9] =  {x0: -62,   x1: 559,   x2: 1180,  y: -1055, w: 620,   h: 1023}
 
     // iTerm2,   work, Erik laptop, screen_count = 1
-    options[10] = {x0: 500,   x1: 500,   x2: 500,   y: 1000,  w: 620,   h: 1023}
+    options[10] = {x0: 0,     x1: 605,   x2: 835,   y: 25,    w: 605,   h: 811 }
 
     // iTerm2,   work, Erik laptop, screen_count = 2
+    // N/A
     options[11] = {x0: 500,   x1: 500,   x2: 500,   y: 1000,  w: 620,   h: 1023}
 
     // iTerm2,   home, work laptop, screen_count = 1
-    options[12] = {x0: 0,     x1: 621,   x2: 1172,  y: 25,    w: 620,   h: 1023}
+    options[12] = options[8]
 
     // iTerm2,   home, work laptop, screen_count = 2
     options[13] = {x0: -62,   x1: 559,   x2: 1180,  y: -1055, w: 620,   h: 1023}
 
     // iTerm2,   home, Erik laptop, screen_count = 1
-    options[14] = {x0: 500,   x1: 500,   x2: 500,  y: 1000,  w: 620,    h: 1023}
+    options[14] = options[10]
 
     // iTerm2,   home, Erik laptop, screen_count = 2
     options[15] = {x0: 500,   x1: 500,   x2: 500,  y: 1000,  w: 620,    h: 1023}
