@@ -9,7 +9,7 @@ function run(argv) {
     screen_count = $.NSScreen.screens.count
 
     // assume at home unless command line or network SSID says otherwise
-    // command line wins 
+    // command line wins
     home = true
     if (argv.length > 0 && argv[0] === "work") {
         home = false
@@ -62,10 +62,10 @@ function run(argv) {
     options[5] =  {x0: -62,   x1: 559,   x2: 1180,  y: -1055, w: 620,   h: 1023}
 
     // Terminal, home, Erik laptop, screen_count = 1
-    options[6] =  {x0: 500,   x1: 500,   x2: 500,   y: 1000,  w: 620,   h: 1023}
+    options[6] =  {x0: 0,     x1: 620,   x2: 821,   y: 25,    w: 619,   h: 811 }
 
     // Terminal, home, Erik laptop, screen_count = 2
-    options[7] =  {x0: 500,   x1: 500,   x2: 500,   y: 1000,  w: 620,   h: 1023}
+    options[7] =  {x0: -292,  x1: 328,   x2: 948,   y: -1055, w: 620,   h: 1023}
 
     // iTerm2,   work, work laptop, screen_count = 1
     options[8] =  {x0: 0,     x1: 620,   x2: 819,   y: 1000,  w: 620,   h: 1023}
@@ -92,30 +92,30 @@ function run(argv) {
     options[15] = {x0: 500,   x1: 500,   x2: 500,  y: 1000,  w: 620,    h: 1023}
 
     option_index = (
-		    (isIterm2 ? 8 : 0) + 
-		    (home ? 4 : 0) + 
-		    (hostname.startsWith("Erik") ? 2 : 0) +
-		    (screen_count == 2 ? 1 : 0))
+        (isIterm2 ? 8 : 0) +
+        (home ? 4 : 0) +
+        (hostname.startsWith("Erik") ? 2 : 0) +
+        (screen_count == 2 ? 1 : 0))
     var option = options[option_index]
 
     console.log(
-		    "home=%s " +
-		    "hostname=%s " +
-		    "screen count=%d " +
-		    "option_index=%d", 
-		    home.toString(), 
-		    hostname, 
-		    screen_count,
-                    option_index)
+        "home=%s " +
+        "hostname=%s " +
+        "screen count=%d " +
+        "option_index=%d",
+        home.toString(),
+        hostname,
+        screen_count,
+        option_index)
     console.log(
-		    "(x[], y, w, h) = ([%d, %d, %d], %d, %d, %d)", 
-                    option.x0,
-                    option.x1,
-                    option.x2,
-                    option.y,
-                    option.w,
-                    option.h)
- 
+        "(x[], y, w, h) = ([%d, %d, %d], %d, %d, %d)",
+        option.x0,
+        option.x1,
+        option.x2,
+        option.y,
+        option.w,
+        option.h)
+
     var window_sizes = []
     window_sizes[1] = {x: option.x0, y: option.y, w: option.w, h: option.h}
     window_sizes[2] = {x: option.x1, y: option.y, w: option.w, h: option.h}
@@ -139,7 +139,7 @@ function run(argv) {
             window_number = name.substr(-1)
             // high sierra now names each tab individually.
             // assuming 1-3 in window 1, 4-6 in window 2, 7-9 in window 3
-            // if (window_number == 1 || window_number == 2 || window_number == 3) 
+            // if (window_number == 1 || window_number == 2 || window_number == 3)
             if (window_number == 1 || window_number == 2 || window_number == 3 ||
                 window_number == 4 || window_number == 5 || window_number == 6 ||
                 window_number == 7 || window_number == 8 || window_number == 9) {
@@ -160,19 +160,19 @@ function run(argv) {
             window_number = parseInt(window_number, 10)
 
             console.log(
-                    "%d:%s " +
-		    "cur (x, y, w, h) = (%d, %d, %d, %d) " +
-		    "new (x, y, w, h) = (%d, %d, %d, %d) ",
-		    j, 
-		    window_number, 
-                    bounds.x, 
-		    bounds.y, 
-		    bounds.width, 
-		    bounds.height,
-                    window_sizes[window_number].x,
-                    window_sizes[window_number].y,
-                    window_sizes[window_number].w,
-                    window_sizes[window_number].h)
+                "%d:%s " +
+                "cur (x, y, w, h) = (%d, %d, %d, %d) " +
+                "new (x, y, w, h) = (%d, %d, %d, %d) ",
+                j,
+                window_number,
+                bounds.x,
+                bounds.y,
+                bounds.width,
+                bounds.height,
+                window_sizes[window_number].x,
+                window_sizes[window_number].y,
+                window_sizes[window_number].w,
+                window_sizes[window_number].h)
 
             bounds.x = window_sizes[window_number].x
             bounds.y = window_sizes[window_number].y
