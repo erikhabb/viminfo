@@ -23,9 +23,18 @@ PROMPT_COMMAND='history -a'
 
 # mac specific
 if [[ "$OSTYPE" == "darwin"* ]]; then
+  if [ -x $HOME/bin/nvim-osx64/bin/nvim ]; then
+    export PATH="$HOME/bin/nvim-osx64/bin:$PATH"
+    alias vi='nvim'
+  fi
   export PATH="$HOME/.cargo/bin:$PATH"
   unalias ls
   export CLICOLOR=1
+else
+  if [ -x $HOME/bin/nvim-linux64/bin/nvim ]; then
+    export PATH="$HOME/bin/nvim-linux64/bin:$PATH"
+    alias vi='nvim'
+  fi
 fi
 
 # Motorola specific
