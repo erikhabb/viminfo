@@ -84,14 +84,33 @@ autocmd BufWritePre * exe "mark s | g/$/s/  *$// | 's"
 " command to override existing formatting and set up linux kernel source code
 " formatting
 :command Kernel set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+
+" https://medium.com/@sszreter/vim-tab-autocomplete-in-insert-mode-and-fuzzy-search-for-opening-files-484260f52618
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MULTIPURPOSE TAB KEY
+" Indent if we're at the beginning of a line. Else, do completion.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <expr> <tab> InsertTabWrapper()
+inoremap <s-tab> <c-n>
+
 " }}}
 
 " Plugins ---------------------------------------------------------------- {{{
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'roblillack/vim-bufferlist'
 Plug 'scrooloose/nerdtree'
+Plug 'rkulla/pydiction'
+Plug 'roblillack/vim-bufferlist'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -131,3 +150,8 @@ let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
             \ '\.o$', '\.so$', '\.egg$', '^\.git$', '__pycache__', '\.DS_Store' ]
 
 " }}}
+"
+" pydiction settings {{{
+let g:pydiction_location=expand("$HOME/.config/nvim/plugged/pydiction/complete-dict")
+" }}}
+"
