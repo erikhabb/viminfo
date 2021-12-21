@@ -58,6 +58,7 @@ set timeout timeoutlen=1000 ttimeoutlen=50
 
 " Vim behaviour {{{
 syntax on
+colorscheme erikh
 hi CursorLine cterm=NONE ctermbg=darkgrey ctermfg=white guibg=Grey40 guifg=white
 set backspace=indent,eol,start  " backspace over autoindent, line breaks, start of insert
 set cursorline nocursorcolumn
