@@ -47,8 +47,7 @@ function run(argv) {
     options[0] =  {x0: 0,     x1: 621,   x2: 1169,  y: 25,    w: 620,   h: 1023}
 
     // Terminal, work, work laptop, screen_count = 2
-    // @todo
-    options[1] =  {x0: 500,   x1: 500,   x2: 500,   y: 1000,  w: 620,   h: 1023}
+    options[1] =  {x0: -87,   x1: 534,   x2: 1155,  y: -1055, w: 620,   h: 1023}
 
     // Terminal, work, Erik laptop, screen_count = 1
     options[2] =  {x0: 0,     x1: 620,   x2: 821,   y: 25,    w: 619,   h: 811 }
@@ -73,8 +72,7 @@ function run(argv) {
     options[8] =  {x0: 0,     x1: 621,   x2: 1172,  y: 25,    w: 620,   h: 1023}
 
     // iTerm2,   work, work laptop, screen_count = 2
-    // @todo
-    options[9] =  {x0: -62,   x1: 559,   x2: 1180,  y: -1055, w: 620,   h: 1023}
+    options[9] =  {x0: -87,   x1: 534,   x2: 1155,  y: -1055, w: 620,   h: 1023}
 
     // iTerm2,   work, Erik laptop, screen_count = 1
     options[10] = {x0: 0,     x1: 605,   x2: 835,   y: 25,    w: 605,   h: 811 }
