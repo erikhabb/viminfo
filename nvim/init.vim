@@ -77,6 +77,9 @@ set visualbell                  " don't beep
 set wildmode=list:full          " show a list when pressing tab and complete
                                 "    first full match
 
+" set working directory to current file's directory
+autocmd BufEnter * lcd %:p:h
+
 " delete trailing whitespace on file write/close, maybe override this later
 " with format on save as nvie/*/init.vim does
 autocmd BufWritePre * exe "mark s | g/$/s/  *$// | 's"
@@ -107,10 +110,8 @@ inoremap <s-tab> <c-n>
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'scrooloose/nerdtree'
 Plug 'rkulla/pydiction'
 Plug 'roblillack/vim-bufferlist'
-Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -120,37 +121,7 @@ call plug#end()
 nmap <silent> \\ :call BufferList()<CR>
 " }}}
 
-" NERDTree settings {{{
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <leader>m :NERDTreeClose<CR>:NERDTreeFind<CR>
-nnoremap <leader>N :NERDTreeClose<CR>
 
-" Store the bookmarks file
-let NERDTreeBookmarksFile=expand("$HOME/.config/nvim/NERDTreeBookmarks")
-
-" Show the bookmarks table on startup
-let NERDTreeShowBookmarks=1
-
-" Show hidden files, too
-let NERDTreeShowFiles=1
-let NERDTreeShowHidden=1
-
-" Quit on opening files from the tree
-let NERDTreeQuitOnOpen=1
-
-" Highlight the selected entry in the tree
-let NERDTreeHighlightCursorline=1
-
-" Use a single click to fold/unfold directories and a double click to open
-" files
-let NERDTreeMouseMode=2
-
-" Don't display these kinds of files
-let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
-            \ '\.o$', '\.so$', '\.egg$', '^\.git$', '__pycache__', '\.DS_Store' ]
-
-" }}}
-"
 " pydiction settings {{{
 let g:pydiction_location=expand("$HOME/.config/nvim/plugged/pydiction/complete-dict")
 " }}}
