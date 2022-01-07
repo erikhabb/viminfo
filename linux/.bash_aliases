@@ -43,4 +43,5 @@ fi
 
 # Motorola specific
 alias ssh_work_vm='ssh -p 2522 erik@127.0.0.1'
+alias ssh_paula='ssh erik@10.66.4.140'
 
