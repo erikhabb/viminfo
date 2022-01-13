@@ -49,55 +49,85 @@ function run(argv) {
     // Terminal, work, work laptop, screen_count = 2
     options[1] =  {x0: -87,   x1: 534,   x2: 1155,  y: -1055, w: 620,   h: 1023}
 
+    // Terminal, work, work laptop, screen_count = 3
+    options[2] =  {x0: -1051, x1: -430,  x2: 191,   y: -1055, w: 620,   h: 1023}
+
     // Terminal, work, Erik laptop, screen_count = 1
-    options[2] =  {x0: 0,     x1: 620,   x2: 821,   y: 25,    w: 619,   h: 811 }
+    options[3] =  {x0: 0,     x1: 620,   x2: 821,   y: 25,    w: 619,   h: 811 }
 
     // Terminal, work, Erik laptop, screen_count = 2
     // N/A
-    options[3] =  {x0: 500,   x1: 500,   x2: 500,   y: 1000,  w: 620,   h: 1023}
+    options[4] =  {x0: 500,   x1: 500,   x2: 500,   y: 1000,  w: 620,   h: 1023}
+
+    // Terminal, work, Erik laptop, screen_count = 3
+    // N/A
+    options[5] =  {x0: 500,   x1: 500,   x2: 500,   y: 1000,  w: 620,   h: 1023}
 
     // Terminal, home, work laptop, screen_count = 1
-    options[4] = options[0]
+    options[6] = options[0]
 
     // Terminal, home, work laptop, screen_count = 2
-    options[5] =  {x0: -62,   x1: 559,   x2: 1180,  y: -1055, w: 620,   h: 1023}
+    options[7] =  {x0: -62,   x1: 559,   x2: 1180,  y: -1055, w: 620,   h: 1023}
+
+    // Terminal, home, work laptop, screen_count = 3
+    // N/A
+    options[8] =  {x0: -62,   x1: 559,   x2: 1180,  y: -1055, w: 620,   h: 1023}
 
     // Terminal, home, Erik laptop, screen_count = 1
-    options[6] = options[2]
+    options[9] = options[3]
 
     // Terminal, home, Erik laptop, screen_count = 2
-    options[7] =  {x0: -292,  x1: 328,   x2: 948,   y: -1055, w: 620,   h: 1023}
+    options[10] = {x0: -292,  x1: 328,   x2: 948,   y: -1055, w: 620,   h: 1023}
+
+    // Terminal, home, Erik laptop, screen_count = 3
+    // N/A
+    options[11] = {x0: -292,  x1: 328,   x2: 948,   y: -1055, w: 620,   h: 1023}
 
     // iTerm2,   work, work laptop, screen_count = 1
-    options[8] =  {x0: 0,     x1: 621,   x2: 1172,  y: 25,    w: 620,   h: 1023}
+    options[12] = {x0: 0,     x1: 621,   x2: 1172,  y: 25,    w: 620,   h: 1023}
 
     // iTerm2,   work, work laptop, screen_count = 2
-    options[9] =  {x0: -87,   x1: 534,   x2: 1155,  y: -1055, w: 620,   h: 1023}
+    options[13] = {x0: -87,   x1: 534,   x2: 1155,  y: -1055, w: 620,   h: 1023}
+
+    // iTerm2,   work, work laptop, screen_count = 3
+    options[14] = {x0: -1051, x1: -430,  x2: 191,   y: -1055, w: 620,   h: 1023}
 
     // iTerm2,   work, Erik laptop, screen_count = 1
-    options[10] = {x0: 0,     x1: 605,   x2: 835,   y: 25,    w: 605,   h: 811 }
+    options[15] = {x0: 0,     x1: 605,   x2: 835,   y: 25,    w: 605,   h: 811 }
 
     // iTerm2,   work, Erik laptop, screen_count = 2
     // N/A
-    options[11] = {x0: 500,   x1: 500,   x2: 500,   y: 1000,  w: 620,   h: 1023}
+    options[16] = {x0: 500,   x1: 500,   x2: 500,   y: 1000,  w: 620,   h: 1023}
+
+    // iTerm2,   work, Erik laptop, screen_count = 3
+    // N/A
+    options[17] = {x0: 500,   x1: 500,   x2: 500,   y: 1000,  w: 620,   h: 1023}
 
     // iTerm2,   home, work laptop, screen_count = 1
-    options[12] = options[8]
+    options[18] = options[8]
 
     // iTerm2,   home, work laptop, screen_count = 2
-    options[13] = {x0: -62,   x1: 559,   x2: 1180,  y: -1055, w: 620,   h: 1023}
+    options[19] = {x0: -62,   x1: 559,   x2: 1180,  y: -1055, w: 620,   h: 1023}
+
+    // iTerm2,   home, work laptop, screen_count = 3
+    // N/A
+    options[20] = {x0: -62,   x1: 559,   x2: 1180,  y: -1055, w: 620,   h: 1023}
 
     // iTerm2,   home, Erik laptop, screen_count = 1
-    options[14] = options[10]
+    options[21] = options[15]
 
     // iTerm2,   home, Erik laptop, screen_count = 2
-    options[15] = {x0: 500,   x1: 500,   x2: 500,  y: 1000,  w: 620,    h: 1023}
+    options[22] = {x0: 500,   x1: 500,   x2: 500,  y: 1000,  w: 620,    h: 1023}
+
+    // iTerm2,   home, Erik laptop, screen_count = 3
+    // N/A
+    options[23] = {x0: 500,   x1: 500,   x2: 500,  y: 1000,  w: 620,    h: 1023}
 
     option_index = (
-        (isIterm2 ? 8 : 0) +
-        (home ? 4 : 0) +
-        (hostname.startsWith("Erik") ? 2 : 0) +
-        (screen_count == 2 ? 1 : 0))
+        (isIterm2 ? 12 : 0) +
+        (home ? 6 : 0) +
+        (hostname.startsWith("Erik") ? 3 : 0) +
+        (screen_count - 1))
     var option = options[option_index]
 
     console.log(
