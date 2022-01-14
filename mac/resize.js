@@ -104,7 +104,7 @@ function run(argv) {
     options[17] = {x0: 500,   x1: 500,   x2: 500,   y: 1000,  w: 620,   h: 1023}
 
     // iTerm2,   home, work laptop, screen_count = 1
-    options[18] = options[8]
+    options[18] = options[12]
 
     // iTerm2,   home, work laptop, screen_count = 2
     options[19] = {x0: -62,   x1: 559,   x2: 1180,  y: -1055, w: 620,   h: 1023}
