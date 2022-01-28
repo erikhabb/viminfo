@@ -42,7 +42,7 @@ else
 fi
 
 # Motorola specific
-export PATH="$HOME/code/omons/build-tools/build-commands:$PATH"
+export PATH="/work/omons/build-tools/build-commands:$PATH"
 alias ssh_work='ssh erik@10.66.5.73'
 alias ssh_work_vm='ssh -p 2522 erik@127.0.0.1'
 alias ssh_paula='ssh erik@10.66.4.140'
