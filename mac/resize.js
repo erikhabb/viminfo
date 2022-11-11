@@ -67,7 +67,7 @@ function run(argv) {
     options[6] = options[0]
 
     // Terminal, home, work laptop, screen_count = 2
-    options[7] =  {x0: -62,   x1: 559,   x2: 1180,  y: -1055, w: 620,   h: 1023}
+    options[7] =  {x0: -64,   x1: 557,   x2: 1178,  y: -1055, w: 620,   h: 1023}
 
     // Terminal, home, work laptop, screen_count = 3
     // N/A
@@ -107,7 +107,7 @@ function run(argv) {
     options[18] = options[12]
 
     // iTerm2,   home, work laptop, screen_count = 2
-    options[19] = {x0: -62,   x1: 559,   x2: 1180,  y: -1055, w: 620,   h: 1023}
+    options[19] = {x0: -64,   x1: 557,   x2: 1178,  y: -1055, w: 620,   h: 1023}
 
     // iTerm2,   home, work laptop, screen_count = 3
     // N/A
