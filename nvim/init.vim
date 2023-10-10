@@ -31,7 +31,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 " Editing behaviour {{{
 set copyindent                  " copy the previous indentation on autoindenting
-set expandtab                   " expand tabs by default (overloadable per file type later)
+set noexpandtab                 " don't expand tabs by default (overloadable per file type later)
 set ignorecase                  " ignore case when searching
 set nohlsearch                  " turn off search highlighting
 set noincsearch                 " turn off incremental search
@@ -112,6 +112,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'rkulla/pydiction'
 Plug 'roblillack/vim-bufferlist'
+" Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
 
@@ -125,4 +126,6 @@ nmap <silent> \\ :call BufferList()<CR>
 " pydiction settings {{{
 let g:pydiction_location=expand("$HOME/.config/nvim/plugged/pydiction/complete-dict")
 " }}}
-"
+
+" extern config files (in Lua)
+" luafile ~/.config/nvim/lsp.lua
