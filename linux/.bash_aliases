@@ -45,5 +45,7 @@ fi
 export PATH="/work/omons/build-tools/build-commands:$PATH"
 alias ssh_work='ssh erik@10.66.5.73'
 alias ssh_work_vm='ssh -p 2522 erik@127.0.0.1'
+alias ssh_work_josh_vm_old='ssh xqrn78@xqrn78-dev-vm-01.am.mot-solutions.com'
+alias ssh_work_josh_vm='ssh xqrn78@xqrn78-dev-01.am.mot-solutions.com'
 alias ssh_paula='ssh erik@10.66.4.140'
 
