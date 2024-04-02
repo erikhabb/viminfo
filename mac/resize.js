@@ -4,7 +4,7 @@ function run(argv) {
     // gather information on current configuration
     ca = Application.currentApplication()
     ca.includeStandardAdditions = true
-    ssid = ca.doShellScript("/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'")
+    ssid = ca.doShellScript("networksetup -getairportnetwork en0 | cut -d ' ' -f 4")
     hostname = ca.systemInfo().hostName
     screen_count = $.NSScreen.screens.count
 
